@@ -61,10 +61,11 @@ class Author:
         return list(set(article.magazine for article in self.articles()))
 
     def add_article(self, magazine, title):
-        pass
+        return Article(self, magazine, title)
 
     def topic_areas(self):
-        pass
+        return [magazine.category for magazine in self.magazines()] or None
+
 
 class Magazine:
     def __repr__(self):
@@ -99,7 +100,11 @@ class Magazine:
         return list(set(article.author for article in self.articles()))
 
     def article_titles(self):
-        pass
+        return [article.title for article in self.articles()] or None
 
     def contributing_authors(self):
-        pass
+        count = {}
+        for article in self.articles():
+            author = article.author
+            count[author] = count.get(author,0) + 1
+        return [key for key,val in count.items() if val > 1] or None
