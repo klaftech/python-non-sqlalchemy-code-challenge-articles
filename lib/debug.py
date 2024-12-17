@@ -17,6 +17,10 @@ if __name__ == '__main__':
     article_1 = Article(author_1, magazine_1, "How to wear a tutu with style")
     article_2 = Article(author_2, magazine_1, "Dating life in NYC")
 
+    Article(author_1, magazine_1, "How to be single and happy")
+    Article(author_1, magazine_2, "2023 Eccentric Design Trends")
+    Article(author_1, magazine_2, "Carrara Marble is so 2020")
+        
 
     # don't remove this line, it's for debugging!
     ipdb.set_trace()

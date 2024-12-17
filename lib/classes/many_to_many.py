@@ -68,6 +68,15 @@ class Author:
 
 
 class Magazine:
+
+    @classmethod
+    def top_publisher(cls):
+        count = {}
+        for article in Article.all:
+            magazine = article.magazine
+            count[magazine] = count.get(magazine,0) + 1
+        return None if not count else max(count, key=count.get)
+
     def __repr__(self):
         return f"<Magazine name: {self.name}, category: {self.category}>"
 
